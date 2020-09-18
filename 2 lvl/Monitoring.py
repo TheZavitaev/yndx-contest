@@ -28,10 +28,21 @@
 Формат вывода
 Напечатайте транспонированную матрицу в том же формате.
 """
+db_ = []
+row = int(input())
+col = int(input())
+for one_row in range(row):
+    for idx, row_ in enumerate(input().split(' ')):
+        if idx < len(db_):
+            db_[idx] = f'{db_[idx]} {row_}'
+        else:
+            db_.append(row_)
+print('\n'.join(db_))
 
-m = int(input())
-n = int(input())
-matrix = [[int(j) for j in input().split()] for i in range(m)]
-transpose = list(zip(*matrix))
 
-print(*transpose, sep='\n')
+# m = int(input())
+# n = int(input())
+# matrix = [[int(j) for j in input().split()] for i in range(m)]
+# transpose = list(zip(*matrix))
+#
+# print(*transpose, sep='\n')
