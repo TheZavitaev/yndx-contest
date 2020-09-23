@@ -10,7 +10,7 @@
 Выведите True, если фраза является палиндромом и False, если не является.
 """
 
-input = str(input()).lower()
-text = "".join(symbol for symbol in input if symbol.isalnum())
+inp = str(input()).lower()
+text = "".join(symbol for symbol in inp if symbol.isalnum())
 palindrome = text[::-1]
 print(text == palindrome)
