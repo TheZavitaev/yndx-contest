@@ -1,3 +1,4 @@
+# 34723937
 import re
 
 OPERATORS = {
@@ -26,17 +27,17 @@ def reversed_polish_notation(expr):
                     oper2 = stack.pop()
                     oper1 = stack.pop()
                 except IndexError:
-                    raise
+                    raise Exception('Мало операндов')
 
                 try:
                     oper = OPERATORS[oper](oper1, oper2)
                 except ZeroDivisionError:
-                    raise
+                    raise Exception('Деление на ноль')
 
                 stack.append(oper)
 
     if len(stack) != 1:
-        raise
+        raise Exception('Много операндов')
 
     return stack.pop()
 
