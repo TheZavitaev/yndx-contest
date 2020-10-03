@@ -1,4 +1,4 @@
-# 34723937
+# 34796867
 """
 Задание связано с обратной польской нотацией.
 Она используется для парсинга арифметических выражений.
@@ -98,20 +98,20 @@ class Stack:
 
 def reversed_polish_notation(expr):
     stack = Stack()
-    lst = list(expr)
-
     for _ in expr:
 
-        if _.isdigit():
-            stack.push(_)
-            lst.remove(_)
-        else:
+        try:
+            oper = int(_)
+            stack.push(oper)
+        except ValueError:
             cnt1, cnt2 = stack.pop(), stack.pop()
-            stack.push(OPERATORS[_](int(cnt2), int(cnt1)))
-            lst.remove(_)
+            stack.push(OPERATORS[_](cnt2, cnt1))
 
     return stack.pop()
 
 
 if __name__ == '__main__':
-    print(reversed_polish_notation(input().split()))
+    inp = input()
+    expr = inp.split()
+    answer = int(reversed_polish_notation(expr))
+    print(answer)
